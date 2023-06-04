@@ -19,4 +19,7 @@ export const API = {
   async getMessages() {
     return instance.get(`/messages`).then((response) => response.data);
   },
+  async getUsers() {
+    return instance.get(`/users`).then((response) => response.data);
+  },
 };

@@ -22,11 +22,9 @@ function App() {
               id: Date.now(),
             };
             socket.send(JSON.stringify(message));
-            console.log("Connected");
           };
           socket.onmessage = (event) => {
             const message = JSON.parse(event.data);
-            console.log("MESSAGE", message);
             setMessages((prev) => [message, ...prev]);
           };
           socket.onclose = () => {
@@ -47,7 +45,6 @@ function App() {
   return (
     <div
       className="container mx-auto d-flex items-center justify-content-center flex-col"
-      style={{ marginTop: "40vh" }}
     >
       {connected ? (
         <Chat
