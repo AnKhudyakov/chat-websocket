@@ -12,7 +12,7 @@ function App() {
     if (name.length) {
       API.postReg({ name })
         .then((data) => {
-          const socket = new WebSocket("ws://localhost:3000");
+          const socket = new WebSocket(import.meta.env.VITE_API_WS);
           setSocket(socket);
           socket.onopen = () => {
             setConnected(true);
